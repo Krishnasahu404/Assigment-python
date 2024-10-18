@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Report</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'upload/summary.css' %}">
+</head>
+<body>
+    <h1>Summary Report</h1>
+    
+    <h2>Uploaded Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Cust State</th>
+                <th>Cust Pin</th>
+                <th>DPD</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.Cust_State }}</td>
+                <td>{{ row.Cust_Pin }}</td>
+                <td>{{ row.DPD }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>DPD Summary</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total DPD</td>
+                <td>{{ total_dpd }}</td>
+            </tr>
+            <tr>
+                <td>Average DPD</td>
+                <td>{{ average_dpd }}</td>
+            </tr>
+            <tr>
+                <td>Maximum DPD</td>
+                <td>{{ max_dpd }}</td>
+            </tr>
+            <tr>
+                <td>Minimum DPD</td>
+                <td>{{ min_dpd }}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
